@@ -40,4 +40,4 @@ echoes-of-time/
 ```
 
 ## License
-MIT License. Use, modify, and distribute freely
+MIT License. Use, modify, and distribute freely.
