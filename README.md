@@ -9,3 +9,32 @@ Run this in your terminal (Mac/Linux/WSL/Windows):
 ```bash
 curl -fsSL https://raw.githubusercontent.com/ShortTimeNoSee/echoes-of-time/main/bootstrap.sh | bash
 ```
+### ⚠️⚠️⚠️
+When running the setup script, the game will be cloned into a folder named `game`. If a folder named `game` already exists in the current directory, it will be deleted and replaced. Make sure you don't have important files in a folder named `game` before running the setup.
+### ⚠️⚠️⚠️
+
+## Controls
+* Move: Arrow keys
+* Create Echo: Press `E`
+* Pause Game: Press `P`
+
+## Requirements
+* Python 3.x
+* Pygame library
+If missing, the setup script will handle everything.
+
+## File structure
+```
+echoes-of-time/
+├── bootstrap.sh        # Setup script
+├── game.py             # Game logic
+└── sounds/             # Sound effects
+    ├── echo.wav
+    ├── death.wav
+    ├── shatter.wav
+    ├── level_up.wav
+    └── pause.wav
+```
+
+## License
+MIT License. Use, modify, and distribute freely
