@@ -21,6 +21,7 @@ When running the setup script, the game will be cloned into a folder named `game
 ## Requirements
 * Python 3.x
 * Pygame library
+
 If missing, the setup script will handle everything.
 
 ## File structure
