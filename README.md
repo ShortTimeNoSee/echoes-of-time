@@ -29,6 +29,8 @@ If missing, the setup script will handle everything.
 echoes-of-time/
 ├── bootstrap.sh        # Setup script
 ├── game.py             # Game logic
+├── README.md           # Game instructions and details
+├── LICENSE             # Licensing information
 └── sounds/             # Sound effects
     ├── echo.wav
     ├── death.wav
