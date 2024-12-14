@@ -7,7 +7,7 @@
 **One Command Setup:**  
 Run this in your terminal (Mac/Linux/WSL/Windows):
 ```bash
-curl -fsSL https://raw.githubusercontent.com/ShortTimeNoSee/echoes-of-time/main/bootstrap.sh | bash
+curl -fsSL https://raw.githubusercontent.com/ShortTimeNoSee/echoes-of-time/main/setup-launcher.sh | bash
 ```
 ### ⚠️⚠️⚠️
 When running the setup script, the game will be cloned into a folder named `game`. If a folder named `game` already exists in the current directory, it will be deleted and replaced. Make sure you don't have important files in a folder named `game` before running the setup.
