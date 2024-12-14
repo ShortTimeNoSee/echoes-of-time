@@ -27,7 +27,11 @@ If missing, the setup script will handle everything.
 ## File structure
 ```
 echoes-of-time/
-├── bootstrap.sh        # Setup script
+├── bootstrap.sh        # POSIX-compatible setup script (Linux/macOS)
+├── setup-windows.ps1   # Windows PowerShell setup script
+├── setup-launcher.sh   # Unified launcher for detecting OS and running the appropriate script
+├── play.sh             # Cross-platform game launcher (POSIX-based environments)
+├── play.ps1            # Game launcher for Windows (PowerShell)
 ├── game.py             # Game logic
 ├── README.md           # Game instructions and details
 ├── LICENSE             # Licensing information
