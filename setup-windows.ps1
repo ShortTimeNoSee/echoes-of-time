@@ -1,31 +1,33 @@
-# Check if Python is installed
-if (-not (Get-Command python3 -ErrorAction SilentlyContinue)) {
-    Write-Host "Python 3 not found. Installing Python..."
-    if (Get-Command winget -ErrorAction SilentlyContinue) {
-        winget install -e --id Python.Python.3
-    } else {
-        Write-Host "winget not found. Please install Python manually from https://www.python.org/"
-        exit 1
-    }
-}
+#!/bin/bash
 
-# Clone repository
-Write-Host "Cloning the game repository..."
-if (Test-Path "game") {
-    Remove-Item -Recurse -Force "game"
-}
-git clone https://github.com/ShortTimeNoSee/echoes-of-time.git game
-Set-Location "game"
+set -e
 
-# Set up virtual environment
-Write-Host "Setting up a virtual environment..."
-python3 -m venv venv
-& .\venv\Scripts\Activate.ps1
+# Detect OS and Shell
+OS="$(uname -s)"
+SHELL_TYPE="$(ps -p $$ -o comm=)"
+echo "Detected OS: $OS"
+echo "Detected Shell: $SHELL_TYPE"
 
-# Install Pygame
-Write-Host "Installing Pygame..."
-pip install pygame
+# Handle macOS/Linux
+if [[ "$OS" == "Darwin" || "$OS" == "Linux" ]]; then
+    echo "Running macOS/Linux setup..."
+    curl -fsSL https://raw.githubusercontent.com/ShortTimeNoSee/echoes-of-time/main/setup-posix.sh | bash
+    exit 0
+fi
 
-# Run the game
-Write-Host "Running the game..."
-python3 game.py
+# Handle Windows
+if [[ "$OS" == "CYGWIN"* || "$OS" == "MINGW"* || "$OS" == "MSYS_NT"* ]]; then
+    echo "Detected Windows..."
+    if [[ "$SHELL_TYPE" =~ "powershell" || "$SHELL_TYPE" =~ "cmd" ]]; then
+        echo "Running PowerShell/Command Prompt setup..."
+        curl -fsSL https://raw.githubusercontent.com/ShortTimeNoSee/echoes-of-time/main/setup-windows.ps1 | powershell -Command -
+    else
+        echo "Running Git Bash setup..."
+        curl -fsSL https://raw.githubusercontent.com/ShortTimeNoSee/echoes-of-time/main/setup-posix.sh | bash
+    fi
+    exit 0
+fi
+
+# Unsupported OS
+echo "Unsupported OS or Shell. Please install manually."
+exit 1
