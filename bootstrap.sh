@@ -17,7 +17,7 @@ if ! command -v python3 &> /dev/null; then
         fi
         brew install python
     elif [[ "$OS" == "Linux" || "$OS" == "CYGWIN"* || "$OS" == "MINGW"* ]]; then
-        # Windows with WSL or native Linux
+        # Linux or Windows WSL
         echo "Installing Python for Linux/Windows..."
         if command -v apt-get &> /dev/null; then
             sudo apt-get update && sudo apt-get install -y python3 python3-pip
@@ -41,9 +41,14 @@ fi
 git clone https://github.com/ShortTimeNoSee/echoes-of-time.git game
 cd game
 
+# Create and activate a virtual environment
+echo "Setting up a virtual environment..."
+python3 -m venv venv
+source venv/bin/activate
+
 # Install Pygame
 echo "Installing Pygame..."
-pip3 install pygame
+pip install pygame
 
 # Run the game
 echo "Running the game..."
