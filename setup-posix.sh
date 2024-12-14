@@ -17,13 +17,13 @@ if ! command -v python3 &> /dev/null; then
         if command -v apt-get &> /dev/null; then
             sudo apt-get update && sudo apt-get install -y python3 python3-pip
         else
-            echo "Package manager not detected. Please install Python manually."
+            echo "No supported package manager found. Install Python manually."
             exit 1
         fi
     fi
 fi
 
-# Clone repository and set up
+# Clone Repository
 echo "Cloning the game repository..."
 if [ -d "game" ]; then
     rm -rf game
@@ -31,7 +31,7 @@ fi
 git clone https://github.com/ShortTimeNoSee/echoes-of-time.git game
 cd game
 
-# Set up virtual environment
+# Set Up Virtual Environment
 echo "Setting up a virtual environment..."
 python3 -m venv venv
 source venv/bin/activate
@@ -40,6 +40,6 @@ source venv/bin/activate
 echo "Installing Pygame..."
 pip install pygame
 
-# Run the game
+# Run the Game
 echo "Running the game..."
 python3 game.py
