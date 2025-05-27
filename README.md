@@ -1,7 +1,7 @@
 # Echoes of Time
 * Use echoes to destroy enemies.
 * Increasing difficulty with each level.
-* Probably a bug or two.
+* Probably a bug or two or twenty.
 
 ## Easy Installation
 **One Command Setup:**  
