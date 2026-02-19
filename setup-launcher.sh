@@ -15,8 +15,10 @@ case "$OS" in
         
         # After the bootstrap clones the repo, play.sh is inside the 'game' folder.
         if [ -f "game/play.sh" ]; then
+            chmod +x game/play.sh
             ./game/play.sh
         elif [ -f "play.sh" ]; then
+             chmod +x play.sh
             ./play.sh
         else
             echo "Error: play.sh not found."
