@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Navigate to the game directory
-cd "$(dirname "$0")/game"
+cd "$(dirname "$0")"
 
 # Detect the OS
 OS="$(uname -s)"
