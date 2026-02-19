@@ -1,5 +1,5 @@
 # Navigate to the game directory
-Set-Location -Path "$PSScriptRoot\game"
+Set-Location -Path "$PSScriptRoot"
 
 # Activate the virtual environment
 .\venv\Scripts\Activate.ps1
