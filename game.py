@@ -1,9 +1,9 @@
+import asyncio
 import os
 import pygame
 import sys
 from collections import deque
 import random
-import sys
 
 def resource_path(relative_path):
     """Get the absolute path to a resource, works for dev and PyInstaller"""
@@ -466,7 +466,7 @@ SOUND_SHATTER.set_volume(0.8)  # Increased shatter sound volume
 SOUND_LEVEL_UP.set_volume(0.8)
 SOUND_PAUSE.set_volume(0.3)
 
-def run_game():
+async def run_game():
     player = Player(50, 50)
     echoes = []
     shattered_enemies = []
@@ -519,7 +519,7 @@ def run_game():
                                              pygame.K_LALT, pygame.K_RALT,
                                              pygame.K_LSHIFT, pygame.K_RSHIFT]:
                             enemies.clear()
-                            return
+                            return  # Exits run_game() loop to restart in main()
 
         keys = pygame.key.get_pressed()
 
@@ -596,6 +596,7 @@ def run_game():
             pause_rect = pause_text.get_rect(center=(WIDTH//2, HEIGHT//2))
             SCREEN.blit(pause_text, pause_rect)
             pygame.display.flip()
+            await asyncio.sleep(0)
             continue
 
         elif game_state == DEAD:
@@ -665,10 +666,11 @@ def run_game():
             SCREEN.blit(death_text_surface, death_text_surface.get_rect(center=(WIDTH//2, HEIGHT//2)))
 
         pygame.display.flip()
+        await asyncio.sleep(0)
 
-def main():
+async def main():
     while True:
-        run_game()
+        await run_game()
 
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())
