@@ -4,11 +4,20 @@
 * Probably a bug or two or twenty.
 
 ## Easy Installation
-**One Command Setup:**  
-Run this in your terminal (Mac/Linux/WSL/Windows):
+
+Choose the command below that matches your operating system. Open your terminal and paste it in.
+
+### Mac, Linux, or WSL (Ubuntu, Debian, etc.)
 ```bash
 curl -fsSL https://raw.githubusercontent.com/ShortTimeNoSee/echoes-of-time/main/setup-launcher.sh | bash
 ```
+
+### Windows (PowerShell)
+Open **PowerShell** (not CMD) and run:
+```powershell
+powershell -ExecutionPolicy Bypass -Command "Invoke-Expression (Invoke-RestMethod 'https://raw.githubusercontent.com/ShortTimeNoSee/echoes-of-time/main/setup-windows.ps1')"
+```
+
 ### ⚠️⚠️⚠️
 When running the setup script, the game will be cloned into a folder named `game`. If a folder named `game` already exists in the current directory, it will be deleted and replaced. Make sure you don't have important files in a folder named `game` before running the setup.
 ### ⚠️⚠️⚠️
